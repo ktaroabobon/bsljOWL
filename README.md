@@ -1,6 +1,6 @@
-# jalOWL
+# bsljOWL
 
-This repository is ontology for Japan Architecture Law.
+This repository is ontology for Building Standards Law of Japan.
 
-jalOWL stands for Japan Architecture Law OWL.
+bsljOWL stands for Building Standards Law of Japan Ontology.
 
