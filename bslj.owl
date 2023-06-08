@@ -1,39 +1,39 @@
 <rdf:RDF
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
     xmlns:owl="http://www.w3.org/2002/07/owl#"
-    xmlns:ex="http://example.org/">
+    xmlns:bslj="http://example.org/ontology/BuildingStandardsLawOfJapan/">
 
-    <owl:Class rdf:about="http://example.org/Structure"/>
-    <owl:Class rdf:about="http://example.org/PartOfBuilding"/>
-    <owl:Class rdf:about="http://example.org/Facility"/>
+    <owl:Class rdf:about="http://example.org/ontology/BuildingStandardsLawOfJapan/Structure"/>
+    <owl:Class rdf:about="http://example.org/ontology/BuildingStandardsLawOfJapan/PartOfBuilding"/>
+    <owl:Class rdf:about="http://example.org/ontology/BuildingStandardsLawOfJapan/Facility"/>
 
-    <owl:Class rdf:about="http://example.org/Building">
-        <rdfs:subClassOf rdf:resource="http://example.org/Structure"/>
+    <owl:Class rdf:about="http://example.org/ontology/BuildingStandardsLawOfJapan/Building">
+        <rdfs:subClassOf rdf:resource="http://example.org/ontology/BuildingStandardsLawOfJapan/Structure"/>
     </owl:Class>
 
-    <owl:ObjectProperty rdf:about="http://example.org/hasPart"/>
-    <owl:ObjectProperty rdf:about="http://example.org/includes"/>
-    <owl:ObjectProperty rdf:about="http://example.org/excludes"/>
+    <owl:ObjectProperty rdf:about="http://example.org/ontology/BuildingStandardsLawOfJapan/hasPart"/>
+    <owl:ObjectProperty rdf:about="http://example.org/ontology/BuildingStandardsLawOfJapan/includes"/>
+    <owl:ObjectProperty rdf:about="http://example.org/ontology/BuildingStandardsLawOfJapan/excludes"/>
 
-    <ex:Building rdf:about="http://example.org/BuildingInstance">
-        <ex:hasPart rdf:resource="http://example.org/Roof"/>
-        <ex:hasPart rdf:resource="http://example.org/Column"/>
-        <ex:hasPart rdf:resource="http://example.org/Wall"/>
-        <ex:includes rdf:resource="http://example.org/Gate"/>
-        <ex:includes rdf:resource="http://example.org/Office"/>
-        <ex:includes rdf:resource="http://example.org/Shop"/>
-        <ex:includes rdf:resource="http://example.org/Warehouse"/>
-        <ex:excludes rdf:resource="http://example.org/RailwaySafetyFacility"/>
-        <ex:excludes rdf:resource="http://example.org/StorageTank"/>
-    </ex:Building>
+    <bslj:Building rdf:about="http://example.org/ontology/BuildingStandardsLawOfJapan/BuildingInstance">
+        <bslj:hasPart rdf:resource="http://example.org/ontology/BuildingStandardsLawOfJapan/Roof"/>
+        <bslj:hasPart rdf:resource="http://example.org/ontology/BuildingStandardsLawOfJapan/Column"/>
+        <bslj:hasPart rdf:resource="http://example.org/ontology/BuildingStandardsLawOfJapan/Wall"/>
+        <bslj:includes rdf:resource="http://example.org/ontology/BuildingStandardsLawOfJapan/Gate"/>
+        <bslj:includes rdf:resource="http://example.org/ontology/BuildingStandardsLawOfJapan/Office"/>
+        <bslj:includes rdf:resource="http://example.org/ontology/BuildingStandardsLawOfJapan/Shop"/>
+        <bslj:includes rdf:resource="http://example.org/ontology/BuildingStandardsLawOfJapan/Warehouse"/>
+        <bslj:excludes rdf:resource="http://example.org/ontology/BuildingStandardsLawOfJapan/RailwaySafetyFacility"/>
+        <bslj:excludes rdf:resource="http://example.org/ontology/BuildingStandardsLawOfJapan/StorageTank"/>
+    </bslj:Building>
 
-    <ex:PartOfBuilding rdf:about="http://example.org/Roof"/>
-    <ex:PartOfBuilding rdf:about="http://example.org/Column"/>
-    <ex:PartOfBuilding rdf:about="http://example.org/Wall"/>
-    <ex:Facility rdf:about="http://example.org/Gate"/>
-    <ex:Facility rdf:about="http://example.org/Office"/>
-    <ex:Facility rdf:about="http://example.org/Shop"/>
-    <ex:Facility rdf:about="http://example.org/Warehouse"/>
-    <ex:Facility rdf:about="http://example.org/RailwaySafetyFacility"/>
-    <ex:Facility rdf:about="http://example.org/StorageTank"/>
+    <bslj:PartOfBuilding rdf:about="http://example.org/ontology/BuildingStandardsLawOfJapan/Roof"/>
+    <bslj:PartOfBuilding rdf:about="http://example.org/ontology/BuildingStandardsLawOfJapan/Column"/>
+    <bslj:PartOfBuilding rdf:about="http://example.org/ontology/BuildingStandardsLawOfJapan/Wall"/>
+    <bslj:Facility rdf:about="http://example.org/ontology/BuildingStandardsLawOfJapan/Gate"/>
+    <bslj:Facility rdf:about="http://example.org/ontology/BuildingStandardsLawOfJapan/Office"/>
+    <bslj:Facility rdf:about="http://example.org/ontology/BuildingStandardsLawOfJapan/Shop"/>
+    <bslj:Facility rdf:about="http://example.org/ontology/BuildingStandardsLawOfJapan/Warehouse"/>
+    <bslj:Facility rdf:about="http://example.org/ontology/BuildingStandardsLawOfJapan/RailwaySafetyFacility"/>
+    <bslj:Facility rdf:about="http://example.org/ontology/BuildingStandardsLawOfJapan/StorageTank"/>
 </rdf:RDF>
