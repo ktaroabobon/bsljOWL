@@ -1,0 +1,39 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:ex="http://example.org/">
+
+    <owl:Class rdf:about="http://example.org/Structure"/>
+    <owl:Class rdf:about="http://example.org/PartOfBuilding"/>
+    <owl:Class rdf:about="http://example.org/Facility"/>
+
+    <owl:Class rdf:about="http://example.org/Building">
+        <rdfs:subClassOf rdf:resource="http://example.org/Structure"/>
+    </owl:Class>
+
+    <owl:ObjectProperty rdf:about="http://example.org/hasPart"/>
+    <owl:ObjectProperty rdf:about="http://example.org/includes"/>
+    <owl:ObjectProperty rdf:about="http://example.org/excludes"/>
+
+    <ex:Building rdf:about="http://example.org/BuildingInstance">
+        <ex:hasPart rdf:resource="http://example.org/Roof"/>
+        <ex:hasPart rdf:resource="http://example.org/Column"/>
+        <ex:hasPart rdf:resource="http://example.org/Wall"/>
+        <ex:includes rdf:resource="http://example.org/Gate"/>
+        <ex:includes rdf:resource="http://example.org/Office"/>
+        <ex:includes rdf:resource="http://example.org/Shop"/>
+        <ex:includes rdf:resource="http://example.org/Warehouse"/>
+        <ex:excludes rdf:resource="http://example.org/RailwaySafetyFacility"/>
+        <ex:excludes rdf:resource="http://example.org/StorageTank"/>
+    </ex:Building>
+
+    <ex:PartOfBuilding rdf:about="http://example.org/Roof"/>
+    <ex:PartOfBuilding rdf:about="http://example.org/Column"/>
+    <ex:PartOfBuilding rdf:about="http://example.org/Wall"/>
+    <ex:Facility rdf:about="http://example.org/Gate"/>
+    <ex:Facility rdf:about="http://example.org/Office"/>
+    <ex:Facility rdf:about="http://example.org/Shop"/>
+    <ex:Facility rdf:about="http://example.org/Warehouse"/>
+    <ex:Facility rdf:about="http://example.org/RailwaySafetyFacility"/>
+    <ex:Facility rdf:about="http://example.org/StorageTank"/>
+</rdf:RDF>
