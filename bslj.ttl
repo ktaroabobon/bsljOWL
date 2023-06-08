@@ -1,0 +1,104 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix bslj: <http://example.org/ontology/BuildingStandardsLawOfJapan/> .
+
+bslj:Land
+    a          owl:Class ;
+    rdfs:label "土地"@ja .
+
+bslj:Work
+    a          owl:Class ;
+    rdfs:label "工作物"@ja .
+
+bslj:isFixedOn
+    a           owl:ObjectProperty ;
+    rdfs:domain bslj:Work ;
+    rdfs:range  bslj:Land ;
+    rdfs:label  "定着する"@ja .
+
+bslj:Building
+    a               owl:Class ;
+    rdfs:subClassOf bslj:Work ;
+    rdfs:label      "建築物"@ja ;
+    rdfs:comment    "建築物"@ja .
+
+bslj:Roof
+    a            owl:Class ;
+    rdfs:label   "屋根"@ja ;
+    rdfs:comment "屋根"@ja .
+
+bslj:Column
+    a            owl:Class ;
+    rdfs:label   "柱"@ja ;
+    rdfs:comment "柱"@ja .
+
+bslj:Wall
+    a            owl:Class ;
+    rdfs:label   "壁"@ja ;
+    rdfs:comment "壁"@ja .
+
+bslj:Gate
+    a          owl:Class ;
+    rdfs:label "門"@ja .
+
+bslj:Fence
+    a          owl:Class ;
+    rdfs:label "塀"@ja .
+
+bslj:WorkForViewing
+    a          owl:Class ;
+    rdfs:label "観覧のための工作物"@ja .
+
+bslj:Office
+    a          owl:Class ;
+    rdfs:label "事務所"@ja .
+
+bslj:Shop
+    a          owl:Class ;
+    rdfs:label "店舗"@ja .
+
+bslj:EntertainmentVenue
+    a          owl:Class ;
+    rdfs:label "興行場"@ja .
+
+bslj:Warehouse
+    a          owl:Class ;
+    rdfs:label "倉庫"@ja .
+
+bslj:UndergroundOrElevatedWork
+    a            owl:Class ;
+    rdfs:label   "地下若しくは高架の工作物"@ja ;
+    rdfs:comment "地下若しくは高架の工作物"@ja ;
+    owl:unionOf  ( bslj:Office bslj:Shop bslj:EntertainmentVenue bslj:Warehouse ) .
+
+bslj:BuildingFacilities
+    a          owl:Class ;
+    rdfs:label "建築設備"@ja .
+
+bslj:BuildingParts
+    a                  owl:Class ;
+    rdfs:label         "建築部材"@ja ;
+    rdfs:comment       "建築部材"@ja ;
+    owl:intersectionOf ( bslj:Roof bslj:Column bslj:Wall ) .
+
+bslj:BuildingAttachment
+    a            owl:Class ;
+    rdfs:label   "建築附属物"@ja ;
+    rdfs:comment "建築附属物"@ja ;
+    owl:unionOf  ( bslj:Gate bslj:Fence bslj:WorkForViewing bslj:UndergroundOrElevatedWork bslj:BuildingFacilities ) .
+
+bslj:hasPart
+    a            owl:ObjectProperty ;
+    rdfs:domain  bslj:Building ;
+    rdfs:range   bslj:BuildingParts ;
+    rdfs:label   "構成物"@ja ;
+    rdfs:comment "構成物"@ja .
+
+bslj:hasAttachment
+    a            owl:ObjectProperty ;
+    rdfs:domain  bslj:Building ;
+    rdfs:range   bslj:BuildingAttachment ;
+    rdfs:label   "附属物"@ja ;
+    rdfs:comment "附属物"@ja .
