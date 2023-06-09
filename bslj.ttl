@@ -4,6 +4,8 @@
 @prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
 @prefix bslj: <http://example.org/ontology/BuildingStandardsLawOfJapan/> .
 
+# 第二条第一項
+#建築物　土地に定着する工作物のうち、屋根及び柱若しくは壁を有するもの（これに類する構造のものを含む。）、これに附属する門若しくは塀、観覧のための工作物又は地下若しくは高架の工作物内に設ける事務所、店舗、興行場、倉庫その他これらに類する施設（鉄道及び軌道の線路敷地内の運転保安に関する施設並びに跨線橋、プラットホームの上家、貯蔵槽その他これらに類する施設を除く。）をいい、建築設備を含むものとする。
 bslj:Land
     a          owl:Class ;
     rdfs:label "土地"@ja .
@@ -67,11 +69,44 @@ bslj:Warehouse
     a          owl:Class ;
     rdfs:label "倉庫"@ja .
 
+bslj:RailwaySafetyFacility
+    a            owl:Class ;
+    rdfs:label   "鉄道及び軌道の線路敷地内の運転保安に関する施設"@ja ;
+    rdfs:comment "鉄道及び軌道の線路敷地内の運転保安に関する施設"@ja .
+
+bslj:Overpass
+    a            owl:Class ;
+    rdfs:label   "跨線橋"@ja ;
+    rdfs:comment "跨線橋"@ja .
+
+bslj:PlatformShelter
+    a            owl:Class ;
+    rdfs:label   "プラットホームの上部構造"@ja ;
+    rdfs:comment "プラットホームの上部構造"@ja .
+
+bslj:StorageTank
+    a            owl:Class ;
+    rdfs:label   "貯蔵槽"@ja ;
+    rdfs:comment "貯蔵槽"@ja .
+
+bslj:RailwayFacilities
+    a          owl:Class ;
+    rdfs:label "鉄道施設"@ja ;
+    rdfs:comment "鉄道施設"@ja ;
+    owl:unionOf ( bslj:RailwaySafetyFacility bslj:Overpass bslj:PlatformShelter bslj:StorageTank ) .
+
 bslj:UndergroundOrElevatedWork
     a            owl:Class ;
     rdfs:label   "地下若しくは高架の工作物"@ja ;
     rdfs:comment "地下若しくは高架の工作物"@ja ;
     owl:unionOf  ( bslj:Office bslj:Shop bslj:EntertainmentVenue bslj:Warehouse ) .
+
+bslj:exclude
+    a           owl:ObjectProperty ;
+    rdfs:domain bslj:UndergroundOrElevatedWork ;
+    rdfs:range  bslj:RailwayFacilities ;
+    rdfs:label  "除く"@ja ;
+    rdfs:comment "除く"@ja .
 
 bslj:BuildingFacilities
     a          owl:Class ;
