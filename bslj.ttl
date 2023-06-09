@@ -1,73 +1,89 @@
-@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix owl:  <http://www.w3.org/2002/07/owl#> .
-@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
-@prefix bslj: <http://example.org/ontology/BuildingStandardsLawOfJapan/> .
+@prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:      <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
+@prefix bslj:     <http://ktaroabobon.github.io/bslj.owl/> .
+@prefix ifc4.2.1: <http://www.buildingstamrt-tech.org/IFC/DEV/IFC4/ADD2_TC1/OWL#> .
 
 # 第二条第一項
 #建築物　土地に定着する工作物のうち、屋根及び柱若しくは壁を有するもの（これに類する構造のものを含む。）、これに附属する門若しくは塀、観覧のための工作物又は地下若しくは高架の工作物内に設ける事務所、店舗、興行場、倉庫その他これらに類する施設（鉄道及び軌道の線路敷地内の運転保安に関する施設並びに跨線橋、プラットホームの上家、貯蔵槽その他これらに類する施設を除く。）をいい、建築設備を含むものとする。
 bslj:Land
-    a          owl:Class ;
-    rdfs:label "土地"@ja .
+    a            owl:Class ;
+    rdfs:label   "土地"@ja ;
+    rdfs:comment "土地"@ja ;
+    owl:equivalentClass   ifc4.2.1:IfcSite .
 
 bslj:Work
-    a          owl:Class ;
-    rdfs:label "工作物"@ja .
+    a            owl:Class ;
+    rdfs:label   "工作物"@ja ;
+    rdfs:comment "工作物"@ja .
 
 bslj:isFixedOn
-    a           owl:ObjectProperty ;
-    rdfs:domain bslj:Work ;
-    rdfs:range  bslj:Land ;
-    rdfs:label  "定着する"@ja .
+    a            owl:ObjectProperty ;
+    rdfs:domain  bslj:Work ;
+    rdfs:range   bslj:Land ;
+    rdfs:label   "定着する"@ja ;
+    rdfs:comment "定着する"@ja .
 
 bslj:Building
     a               owl:Class ;
     rdfs:subClassOf bslj:Work ;
     rdfs:label      "建築物"@ja ;
-    rdfs:comment    "建築物"@ja .
+    rdfs:comment    "建築物"@ja ;
+    owl:equivalentClass      ifc4.2.1:IfcBuilding .
 
 bslj:Roof
     a            owl:Class ;
     rdfs:label   "屋根"@ja ;
-    rdfs:comment "屋根"@ja .
+    rdfs:comment "屋根"@ja ;
+    owl:equivalentClass   ifc4.2.1:IfcRoof .
 
 bslj:Column
     a            owl:Class ;
     rdfs:label   "柱"@ja ;
-    rdfs:comment "柱"@ja .
+    rdfs:comment "柱"@ja ;
+    owl:equivalentClass   ifc4.2.1:IfcColumn .
 
 bslj:Wall
     a            owl:Class ;
     rdfs:label   "壁"@ja ;
-    rdfs:comment "壁"@ja .
+    rdfs:comment "壁"@ja ;
+    owl:equivalentClass   ifc4.2.1:IfcWall .
 
 bslj:Gate
-    a          owl:Class ;
-    rdfs:label "門"@ja .
+    a            owl:Class ;
+    rdfs:label   "門"@ja ;
+    rdfs:comment "門"@ja .
 
 bslj:Fence
-    a          owl:Class ;
-    rdfs:label "塀"@ja .
+    a            owl:Class ;
+    rdfs:label   "塀"@ja ;
+    rdfs:comment "塀"@ja .
 
 bslj:WorkForViewing
-    a          owl:Class ;
-    rdfs:label "観覧のための工作物"@ja .
+    a            owl:Class ;
+    rdfs:label   "観覧のための工作物"@ja ;
+    rdfs:comment "観覧のための工作物"@ja .
 
 bslj:Office
-    a          owl:Class ;
-    rdfs:label "事務所"@ja .
+    a            owl:Class ;
+    rdfs:label   "事務所"@ja ;
+    rdfs:comment "事務所"@ja .
 
 bslj:Shop
-    a          owl:Class ;
-    rdfs:label "店舗"@ja .
+    a            owl:Class ;
+    rdfs:label   "店舗"@ja ;
+    rdfs:comment "店舗"@ja .
 
 bslj:EntertainmentVenue
-    a          owl:Class ;
-    rdfs:label "興行場"@ja .
+    a            owl:Class ;
+    rdfs:label   "興行場"@ja ;
+    rdfs:comment "興行場"@ja .
 
 bslj:Warehouse
-    a          owl:Class ;
-    rdfs:label "倉庫"@ja .
+    a            owl:Class ;
+    rdfs:label   "倉庫"@ja ;
+    rdfs:comment "倉庫"@ja .
 
 bslj:RailwaySafetyFacility
     a            owl:Class ;
@@ -90,10 +106,10 @@ bslj:StorageTank
     rdfs:comment "貯蔵槽"@ja .
 
 bslj:RailwayFacilities
-    a          owl:Class ;
-    rdfs:label "鉄道施設"@ja ;
+    a            owl:Class ;
+    rdfs:label   "鉄道施設"@ja ;
     rdfs:comment "鉄道施設"@ja ;
-    owl:unionOf ( bslj:RailwaySafetyFacility bslj:Overpass bslj:PlatformShelter bslj:StorageTank ) .
+    owl:unionOf  ( bslj:RailwaySafetyFacility bslj:Overpass bslj:PlatformShelter bslj:StorageTank ) .
 
 bslj:UndergroundOrElevatedWork
     a            owl:Class ;
@@ -102,15 +118,17 @@ bslj:UndergroundOrElevatedWork
     owl:unionOf  ( bslj:Office bslj:Shop bslj:EntertainmentVenue bslj:Warehouse ) .
 
 bslj:exclude
-    a           owl:ObjectProperty ;
-    rdfs:domain bslj:UndergroundOrElevatedWork ;
-    rdfs:range  bslj:RailwayFacilities ;
-    rdfs:label  "除く"@ja ;
+    a            owl:ObjectProperty ;
+    rdfs:domain  bslj:UndergroundOrElevatedWork ;
+    rdfs:range   bslj:RailwayFacilities ;
+    rdfs:label   "除く"@ja ;
     rdfs:comment "除く"@ja .
 
 bslj:BuildingFacilities
-    a          owl:Class ;
-    rdfs:label "建築設備"@ja .
+    a            owl:Class ;
+    rdfs:label   "建築設備"@ja ;
+    rdfs:comment "建築設備"@ja ;
+    owl:equivalentClass   ifc4.2.1:IfcDistributionElement .
 
 bslj:BuildingParts
     a                  owl:Class ;
@@ -137,3 +155,153 @@ bslj:hasAttachment
     rdfs:range   bslj:BuildingAttachment ;
     rdfs:label   "附属物"@ja ;
     rdfs:comment "附属物"@ja .
+
+# 第二条第三項
+# 建築設備　建築物に設ける電気、ガス、給水、排水、換気、暖房、冷房、消火、排煙若しくは汚物処理の設備又は煙突、昇降機若しくは避雷針をいう。
+bslj:Electricity
+    a            owl:Class ;
+    rdfs:label   "電気"@ja ;
+    rdfs:comment "電気"@ja .
+
+bslj:Gas
+    a            owl:Class ;
+    rdfs:label   "ガス"@ja ;
+    rdfs:comment "ガス"@ja .
+
+bslj:WaterSupply
+    a            owl:Class ;
+    rdfs:label   "給水"@ja ;
+    rdfs:comment "給水"@ja .
+
+bslj:Drainage
+    a            owl:Class ;
+    rdfs:label   "排水"@ja ;
+    rdfs:comment "排水"@ja .
+
+bslj:Ventilation
+    a            owl:Class ;
+    rdfs:label   "換気"@ja ;
+    rdfs:comment "換気"@ja .
+
+bslj:Heating
+    a            owl:Class ;
+    rdfs:label   "暖房"@ja ;
+    rdfs:comment "暖房"@ja .
+
+bslj:AirConditioning
+    a            owl:Class ;
+    rdfs:label   "冷房"@ja ;
+    rdfs:comment "冷房"@ja .
+
+bslj:FireFighting
+    a            owl:Class ;
+    rdfs:label   "消火"@ja ;
+    rdfs:comment "消火"@ja .
+
+bslj:SmokeExtraction
+    a            owl:Class ;
+    rdfs:label   "排煙設備"@ja ;
+    rdfs:comment "排煙設備"@ja .
+
+bslj:WasteTreatment
+    a            owl:Class ;
+    rdfs:label   "汚物処理の設備"@ja ;
+    rdfs:comment "汚物処理の設備"@ja .
+
+bslj:Chimney
+    a            owl:Class ;
+    rdfs:label   "煙突"@ja ;
+    rdfs:comment "煙突"@ja .
+
+bslj:Elevator
+    a            owl:Class ;
+    rdfs:label   "昇降機"@ja ;
+    rdfs:comment "昇降機"@ja .
+
+bslj:LightningRod
+    a            owl:Class ;
+    rdfs:label   "避雷針"@ja ;
+    rdfs:comment "避雷針"@ja .
+
+
+
+# 第二条第五項
+# 主要構造部　壁、柱、床、はり、屋根又は階段をいい、建築物の構造上重要でない間仕切壁、間柱、付け柱、揚げ床、最下階の床、回り舞台の床、小ばり、ひさし、局部的な小階段、屋外階段その他これらに類する建築物の部分を除くものとする。
+
+bslj:Floor
+    a            owl:Class ;
+    rdfs:label   "床"@ja ;
+    rdfs:comment "床"@ja ;
+    owl:equivalentClass   bslj:Floor .
+
+bslj:Beam
+    a            owl:Class ;
+    rdfs:label   "梁"@ja ;
+    rdfs:comment "梁"@ja ;
+    owl:equivalentClass   bslj:Beam .
+
+bslj:Stair
+    a            owl:Class ;
+    rdfs:label   "階段"@ja ;
+    rdfs:comment "階段"@ja ;
+    owl:equivalentClass   bslj:Stair .
+
+bslj:PartitionWall
+    a            owl:Class ;
+    rdfs:subClassOf bslj:Wall ;
+    rdfs:label   "間仕切壁"@ja ;
+    rdfs:comment "間仕切壁"@ja .
+
+bslj:IntermediateColumn
+    a            owl:Class ;
+    rdfs:subClassOf bslj:Column ;
+    rdfs:label   "間柱"@ja ;
+    rdfs:comment "間柱"@ja .
+
+bslj:AttachedColumn
+    a            owl:Class ;
+    rdfs:subClassOf bslj:Column ;
+    rdfs:label   "付け柱"@ja ;
+    rdfs:comment "付け柱"@ja .
+
+bslj:RaisedFloor
+    a            owl:Class ;
+    rdfs:subClassOf bslj:Floor ;
+    rdfs:label   "揚げ床"@ja ;
+    rdfs:comment "揚げ床"@ja .
+
+bslj:BottomFloor
+    a            owl:Class ;
+    rdfs:subClassOf bslj:Floor ;
+    rdfs:label   "最下階の床"@ja ;
+    rdfs:comment "最下階の床"@ja .
+
+bslj:RevolvingStageFloor
+    a            owl:Class ;
+    rdfs:subClassOf bslj:Floor ;
+    rdfs:label   "回り舞台の床"@ja ;
+    rdfs:comment "回り舞台の床"@ja .
+
+bslj:SmallBar
+    a            owl:Class ;
+    rdfs:subClassOf bslj:Beam ;
+    rdfs:label   "小ばり"@ja ;
+    rdfs:comment "小ばり"@ja .
+
+bslj:Eaves
+    a            owl:Class ;
+    rdfs:subClassOf bslj:Roof ;
+    rdfs:label   "ひさし"@ja ;
+    rdfs:comment "ひさし"@ja .
+
+bslj:LocalSmallStaircase
+    a            owl:Class ;
+    rdfs:subClassOf bslj:Stair ;
+    rdfs:label   "局部的な小階段"@ja ;
+    rdfs:comment "局部的な小階段"@ja .
+
+bslj:OutdoorStaircase
+    a            owl:Class ;
+    rdfs:subClassOf bslj:Stair ;
+    rdfs:label   "屋外階段"@ja ;
+    rdfs:comment "屋外階段"@ja .
