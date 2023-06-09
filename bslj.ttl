@@ -304,3 +304,9 @@ bslj:OutdoorStaircase
     rdfs:subClassOf bslj:Stair ;
     rdfs:label      "屋外階段"@ja ;
     rdfs:comment    "屋外階段"@ja .
+
+bslj:isStructuralPart
+    a              owl:ObjectProperty ;
+    rdfs:label     "構造部であるか"@ja ;
+    rdfs:comment   "構造部であるか"@ja ;
+    owl:equivalentProperty ifc4.2.1:LoadBearing .
