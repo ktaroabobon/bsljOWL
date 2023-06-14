@@ -1,9 +1,9 @@
-@prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix owl:      <http://www.w3.org/2002/07/owl#> .
-@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
-@prefix bslj:     <http://ktaroabobon.github.io/bsljOWL/bslj.ttl#> .
-@prefix ifc4.2.1: <http://www.buildingstamrt-tech.org/IFC/DEV/IFC4/ADD2_TC1/OWL#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix bslj: <http://ktaroabobon.github.io/bsljOWL/bslj.ttl#> .
+@prefix ifc:  <http://www.buildingstamrt-tech.org/IFC/DEV/IFC4/ADD2_TC1/OWL#> .
 
 # 第二条第一項
 #建築物　土地に定着する工作物のうち、屋根及び柱若しくは壁を有するもの（これに類する構造のものを含む。）、これに附属する門若しくは塀、観覧のための工作物又は地下若しくは高架の工作物内に設ける事務所、店舗、興行場、倉庫その他これらに類する施設（鉄道及び軌道の線路敷地内の運転保安に関する施設並びに跨線橋、プラットホームの上家、貯蔵槽その他これらに類する施設を除く。）をいい、建築設備を含むものとする。
@@ -11,7 +11,7 @@ bslj:Land
     a                   owl:Class ;
     rdfs:label          "土地"@ja ;
     rdfs:comment        "土地"@ja ;
-    owl:equivalentClass ifc4.2.1:IfcSite .
+    owl:equivalentClass ifc:IfcSite .
 
 bslj:Work
     a            owl:Class ;
@@ -30,25 +30,25 @@ bslj:Building
     rdfs:subClassOf     bslj:Work ;
     rdfs:label          "建築物"@ja ;
     rdfs:comment        "建築物"@ja ;
-    owl:equivalentClass ifc4.2.1:IfcBuilding .
+    owl:equivalentClass ifc:IfcBuilding .
 
 bslj:Roof
     a                   owl:Class ;
     rdfs:label          "屋根"@ja ;
     rdfs:comment        "屋根"@ja ;
-    owl:equivalentClass ifc4.2.1:IfcRoof .
+    owl:equivalentClass ifc:IfcRoof .
 
 bslj:Column
     a                   owl:Class ;
     rdfs:label          "柱"@ja ;
     rdfs:comment        "柱"@ja ;
-    owl:equivalentClass ifc4.2.1:IfcColumn .
+    owl:equivalentClass ifc:IfcColumn .
 
 bslj:Wall
     a                   owl:Class ;
     rdfs:label          "壁"@ja ;
     rdfs:comment        "壁"@ja ;
-    owl:equivalentClass ifc4.2.1:IfcWall .
+    owl:equivalentClass ifc:IfcWall .
 
 bslj:Gate
     a            owl:Class ;
@@ -128,7 +128,7 @@ bslj:BuildingFacilities
     a                   owl:Class ;
     rdfs:label          "建築設備"@ja ;
     rdfs:comment        "建築設備"@ja ;
-    owl:equivalentClass ifc4.2.1:IfcDistributionElement .
+    owl:equivalentClass ifc:IfcDistributionElement .
 
 bslj:BuildingParts
     a                  owl:Class ;
@@ -305,8 +305,144 @@ bslj:OutdoorStaircase
     rdfs:label      "屋外階段"@ja ;
     rdfs:comment    "屋外階段"@ja .
 
+# 使用用途
+bslj:Usage
+    a                       owl:ObjectProperty ;
+    rdfs:label              "使用用途"@ja ;
+    rdfs:comment            "使用用途"@ja ;
+    rdfs:equivalentProperty ifc:longName .
+
+# 高さ
+bslj:height
+    a                       owl:ObjectProperty ;
+    rdfs:label              "高さ"@ja ;
+    rdfs:comment            "高さ"@ja ;
+    rdfs:equivalentProperty ifc:TotalHeight .
+
+# 面積
+bslj:area
+    a                       owl:ObjectProperty ;
+    rdfs:label              "面積"@ja ;
+    rdfs:comment            "面積"@ja ;
+    rdfs:equivalentProperty ifc:GrossFloorArea .
+
+# 建物の耐火等級
+bslj:fireProtectionClass
+    a                       owl:ObjectProperty ;
+    rdfs:label              "建物の耐火等級"@ja ;
+    rdfs:comment            "建物の耐火等級"@ja ;
+    rdfs:equivalentProperty ifc:FireProtectionClass .
+
+# 構造部であるか
 bslj:isStructuralPart
-    a              owl:ObjectProperty ;
-    rdfs:label     "構造部であるか"@ja ;
-    rdfs:comment   "構造部であるか"@ja ;
-    owl:equivalentProperty ifc4.2.1:LoadBearing .
+    a                      owl:ObjectProperty ;
+    rdfs:label             "構造部であるか"@ja ;
+    rdfs:comment           "構造部であるか"@ja ;
+    owl:equivalentProperty ifc:LoadBearing .
+
+# ---------------
+# IFC Pset MVD
+# ---------------
+ifc:Pset_BuildingUse_MarketCategory
+    a               owl:Class ;
+    rdfs:subClassOf ifc:IfcPropertySetDefinition ;
+    rdfs:label      "Pset_BuildingUse:MarketCategory"@en ;
+    rdfs:comment    "建物の使用用途"@ja .
+
+ifc:Pset_BuildingUse_MarketCategory_Value
+    a            owl:DatatypeProperty ;
+    rdfs:domain  ifc:Pset_BuildingUse_MarketCategory ;
+    rdfs:range   xsd:string ;
+    rdfs:label   "使用用途の値"@ja ;
+    rdfs:comment "建物の使用用途の値"@ja .
+
+ifc:Pset_Building_Height
+    a               owl:Class ;
+    rdfs:subClassOf ifc:IfcPropertySetDefinition ;
+    rdfs:label      "Pset_Building:Height"@en ;
+    rdfs:comment    "建物の高さ"@ja .
+
+ifc:Pset_Building_Height_Value
+    a            owl:DatatypeProperty ;
+    rdfs:domain  ifc:Pset_Building_Height ;
+    rdfs:range   xsd:integer ;
+    rdfs:label   "建物の高さの値"@ja ;
+    rdfs:comment "建物の高さの値（単位：メートル）"@ja .
+
+ifc:Pset_Space_GrossFloorArea
+    a               owl:Class ;
+    rdfs:subClassOf ifc:IfcPropertySetDefinition ;
+    rdfs:label      "Pset_Space:GrossFloorArea"@en ;
+    rdfs:comment    "柱や壁を含む面積"@ja .
+
+ifc:Pset_Space_GrossFloorArea_Value
+    a            owl:DatatypeProperty ;
+    rdfs:domain  ifc:Pset_Space_GrossFloorArea ;
+    rdfs:range   xsd:integer ;
+    rdfs:label   "柱や壁を含む面積の値"@ja ;
+    rdfs:comment "柱や壁を含む面積の値（単位：平方メートル）"@ja .
+
+ifc:Pset_Building_FireProtectionClass
+    a               owl:Class ;
+    rdfs:subClassOf ifc:IfcPropertySetDefinition ;
+    rdfs:label      "Pset_Building:FireProtectionClass"@en ;
+    rdfs:comment    "建物の耐火等級"@ja .
+
+ifc:Pset_Building_FireProtectionClass_Value
+    a            owl:DatatypeProperty ;
+    rdfs:domain  ifc:Pset_Building_FireProtectionClass ;
+    rdfs:range   xsd:string ;
+    rdfs:label   "建物の耐火等級の値"@ja ;
+    rdfs:comment "建物の耐火等級の値"@ja .
+
+ifc:Pset_Space_AboveGround
+    a               owl:Class ;
+    rdfs:subClassOf ifc:IfcPropertySetDefinition ;
+    rdfs:label      "Pset_Space:AboveGround"@en ;
+    rdfs:comment    "地上階であるか"@ja .
+
+ifc:Pset_Space_AboveGround_Value
+    a            owl:DatatypeProperty ;
+    rdfs:domain  ifc:Pset_Space_AboveGround ;
+    rdfs:range   xsd:boolean ;
+    rdfs:label   "地上階であるかの値"@ja ;
+    rdfs:comment "地上階であるかの値"@ja .
+
+ifc:Pset_WallCommon_FireRating
+    a               owl:Class ;
+    rdfs:subClassOf ifc:IfcPropertySetDefinition ;
+    rdfs:label      "Pset_WallCommon:FireRating"@en ;
+    rdfs:comment    "火災に対する非損傷性・遮熱性・遮炎性の耐久時間"@ja .
+
+ifc:Pset_WallCommon_FireRating_Value
+    a            owl:DatatypeProperty ;
+    rdfs:domain  ifc:Pset_WallCommon_FireRating ;
+    rdfs:range   xsd:integer ;
+    rdfs:label   "火災に対する非損傷性・遮熱性・遮炎性の耐久時間の値"@ja ;
+    rdfs:comment "火災に対する非損傷性・遮熱性・遮炎性の耐久時間の値（単位：分）"@ja .
+
+ifc:Pset_StructuralMemberCommon_LoadBearing
+    a               owl:Class ;
+    rdfs:subClassOf ifc:IfcPropertySetDefinition ;
+    rdfs:label      "Pset_StructuralMemberCommon:LoadBearing"@en ;
+    rdfs:comment    "自重もしくは積載荷重を支える部分であるか"@ja .
+
+ifc:Pset_StructuralMemberCommon_LoadBearing_Value
+    a            owl:DatatypeProperty ;
+    rdfs:domain  ifc:Pset_StructuralMemberCommon_LoadBearing ;
+    rdfs:range   xsd:boolean ;
+    rdfs:label   "自重もしくは積載荷重を支える部分であるかの値"@ja ;
+    rdfs:comment "自重もしくは積載荷重を支える部分であるかの値"@ja .
+
+ifc:Pset_Space_IsExternal
+    a               owl:Class ;
+    rdfs:subClassOf ifc:IfcPropertySetDefinition ;
+    rdfs:label      "Pset_Space:IsExternal"@en ;
+    rdfs:comment    "外部に接している部分があるか"@ja .
+
+ifc:Pset_Space_IsExternal_Value
+    a            owl:DatatypeProperty ;
+    rdfs:domain  ifc:Pset_Space_IsExternal ;
+    rdfs:range   xsd:boolean ;
+    rdfs:label   "外部に接している部分があるかの値"@ja ;
+    rdfs:comment "外部に接している部分があるかの値"@ja .
