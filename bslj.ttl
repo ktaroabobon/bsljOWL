@@ -2,8 +2,8 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl:  <http://www.w3.org/2002/07/owl#> .
 @prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
-@prefix bslj: <http://ktaroabobon.github.io/bsljOWL/bslj.ttl#> .
 @prefix ifc:  <http://www.buildingstamrt-tech.org/IFC/DEV/IFC4/ADD2_TC1/OWL#> .
+@prefix bslj: <http://ktaroabobon.github.io/bsljOWL/bslj.ttl#> .
 
 # 第二条第一項
 #建築物　土地に定着する工作物のうち、屋根及び柱若しくは壁を有するもの（これに類する構造のものを含む。）、これに附属する門若しくは塀、観覧のための工作物又は地下若しくは高架の工作物内に設ける事務所、店舗、興行場、倉庫その他これらに類する施設（鉄道及び軌道の線路敷地内の運転保安に関する施設並びに跨線橋、プラットホームの上家、貯蔵槽その他これらに類する施設を除く。）をいい、建築設備を含むものとする。
@@ -408,41 +408,41 @@ ifc:Pset_Space_AboveGround_Value
     rdfs:label   "地上階であるかの値"@ja ;
     rdfs:comment "地上階であるかの値"@ja .
 
-ifc:Pset_WallCommon_FireRating
+ifc:Pset_FireRating
     a               owl:Class ;
     rdfs:subClassOf ifc:IfcPropertySetDefinition ;
-    rdfs:label      "Pset_WallCommon:FireRating"@en ;
+    rdfs:label      "Pset:FireRating"@en ;
     rdfs:comment    "火災に対する非損傷性・遮熱性・遮炎性の耐久時間"@ja .
 
-ifc:Pset_WallCommon_FireRating_Value
+ifc:Pset_FireRating_Value
     a            owl:DatatypeProperty ;
-    rdfs:domain  ifc:Pset_WallCommon_FireRating ;
+    rdfs:domain  ifc:Pset_FireRating ;
     rdfs:range   xsd:integer ;
     rdfs:label   "火災に対する非損傷性・遮熱性・遮炎性の耐久時間の値"@ja ;
     rdfs:comment "火災に対する非損傷性・遮熱性・遮炎性の耐久時間の値（単位：分）"@ja .
 
-ifc:Pset_StructuralMemberCommon_LoadBearing
+ifc:Pset_LoadBearing
     a               owl:Class ;
     rdfs:subClassOf ifc:IfcPropertySetDefinition ;
-    rdfs:label      "Pset_StructuralMemberCommon:LoadBearing"@en ;
+    rdfs:label      "Pset:LoadBearing"@en ;
     rdfs:comment    "自重もしくは積載荷重を支える部分であるか"@ja .
 
-ifc:Pset_StructuralMemberCommon_LoadBearing_Value
+ifc:Pset_LoadBearing_Value
     a            owl:DatatypeProperty ;
-    rdfs:domain  ifc:Pset_StructuralMemberCommon_LoadBearing ;
+    rdfs:domain  ifc:Pset_LoadBearing ;
     rdfs:range   xsd:boolean ;
     rdfs:label   "自重もしくは積載荷重を支える部分であるかの値"@ja ;
     rdfs:comment "自重もしくは積載荷重を支える部分であるかの値"@ja .
 
-ifc:Pset_Space_IsExternal
+ifc:Pset_IsExternal
     a               owl:Class ;
     rdfs:subClassOf ifc:IfcPropertySetDefinition ;
-    rdfs:label      "Pset_Space:IsExternal"@en ;
+    rdfs:label      "Pset:IsExternal"@en ;
     rdfs:comment    "外部に接している部分があるか"@ja .
 
-ifc:Pset_Space_IsExternal_Value
+ifc:Pset_IsExternal_Value
     a            owl:DatatypeProperty ;
-    rdfs:domain  ifc:Pset_Space_IsExternal ;
+    rdfs:domain  ifc:Pset_IsExternal ;
     rdfs:range   xsd:boolean ;
     rdfs:label   "外部に接している部分があるかの値"@ja ;
     rdfs:comment "外部に接している部分があるかの値"@ja .
