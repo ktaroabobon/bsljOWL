@@ -13,6 +13,18 @@ bslj:Land
     rdfs:comment        "土地"@ja ;
     owl:equivalentClass ifc:IfcSite .
 
+bslj:Work
+    a            owl:Class ;
+    rdfs:label   "工作物"@ja ;
+    rdfs:comment "工作物"@ja .
+
+bslj:isFixedOn
+    a            owl:ObjectProperty ;
+    rdfs:domain  bslj:Work ;
+    rdfs:range   bslj:Land ;
+    rdfs:label   "定着する"@ja ;
+    rdfs:comment "定着する"@ja .
+
 bslj:Building
     a                   owl:Class ;
     rdfs:subClassOf     bslj:Work ;
@@ -293,6 +305,40 @@ bslj:OutdoorStaircase
     rdfs:label      "屋外階段"@ja ;
     rdfs:comment    "屋外階段"@ja .
 
+# 使用用途
+bslj:Usage
+    a                       owl:ObjectProperty ;
+    rdfs:label              "使用用途"@ja ;
+    rdfs:comment            "使用用途"@ja ;
+    rdfs:equivalentProperty ifc:longName .
+
+# 高さ
+bslj:height
+    a                       owl:ObjectProperty ;
+    rdfs:label              "高さ"@ja ;
+    rdfs:comment            "高さ"@ja ;
+    rdfs:equivalentProperty ifc:TotalHeight .
+
+# 面積
+bslj:area
+    a                       owl:ObjectProperty ;
+    rdfs:label              "面積"@ja ;
+    rdfs:comment            "面積"@ja ;
+    rdfs:equivalentProperty ifc:GrossFloorArea .
+
+# 建物の耐火等級
+bslj:fireProtectionClass
+    a                       owl:ObjectProperty ;
+    rdfs:label              "建物の耐火等級"@ja ;
+    rdfs:comment            "建物の耐火等級"@ja ;
+    rdfs:equivalentProperty ifc:FireProtectionClass .
+
+# 構造部であるか
+bslj:isStructuralPart
+    a                      owl:ObjectProperty ;
+    rdfs:label             "構造部であるか"@ja ;
+    rdfs:comment           "構造部であるか"@ja ;
+    owl:equivalentProperty ifc:LoadBearing .
 
 # ---------------
 # IFC Pset MVD
@@ -349,15 +395,15 @@ ifc:Pset_Building_FireProtectionClass_Value
     rdfs:label   "建物の耐火等級の値"@ja ;
     rdfs:comment "建物の耐火等級の値"@ja .
 
-ifc:Pset_Space_AboveGround
+ifc:Pset_Storey_AboveGround
     a               owl:Class ;
     rdfs:subClassOf ifc:IfcPropertySetDefinition ;
-    rdfs:label      "Pset_Space:AboveGround"@en ;
+    rdfs:label      "Pset_Storey:AboveGround"@en ;
     rdfs:comment    "地上階であるか"@ja .
 
-ifc:Pset_Space_AboveGround_Value
+ifc:Pset_Storey_AboveGround_Value
     a            owl:DatatypeProperty ;
-    rdfs:domain  ifc:Pset_Space_AboveGround ;
+    rdfs:domain  ifc:Pset_Storey_AboveGround ;
     rdfs:range   xsd:boolean ;
     rdfs:label   "地上階であるかの値"@ja ;
     rdfs:comment "地上階であるかの値"@ja .
