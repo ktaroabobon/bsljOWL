@@ -369,15 +369,15 @@ ifc:Pset_Building_Height_Value
     rdfs:label   "建物の高さの値"@ja ;
     rdfs:comment "建物の高さの値（単位：メートル）"@ja .
 
-ifc:Pset_GrossFloorArea
+ifc:Pset_GrossPlannedArea
     a               owl:Class ;
     rdfs:subClassOf ifc:IfcPropertySetDefinition ;
-    rdfs:label      "Pset:GrossFloorArea"@en ;
+    rdfs:label      "Pset:GrossPlannedArea"@en ;
     rdfs:comment    "延べ床面積"@ja .
 
-ifc:Pset_GrossFloorArea_Value
+ifc:Pset_GrossPlannedArea_Value
     a            owl:DatatypeProperty ;
-    rdfs:domain  ifc:Pset_GrossFloorArea ;
+    rdfs:domain  ifc:Pset_GrossPlannedArea ;
     rdfs:range   xsd:integer ;
     rdfs:label   "延べ床面積"@ja ;
     rdfs:comment "延べ床面積（単位：平方メートル）"@ja .
